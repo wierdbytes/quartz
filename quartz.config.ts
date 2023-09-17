@@ -15,7 +15,9 @@ const config: QuartzConfig = {
     theme: {
       typography: {
         header: "Raleway",
-        body: "Merriweather",
+        body: "Open Sans",
+        // body: "Merriweather",
+        // body: "Cormorant",
         code: "IBM Plex Mono",
       },
       colors: {
