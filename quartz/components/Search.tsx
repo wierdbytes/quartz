@@ -1,16 +1,23 @@
-import { QuartzComponentConstructor } from "./types"
+import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import style from "./styles/search.scss"
 // @ts-ignore
 import script from "./scripts/search.inline"
+import { Darkmode } from "."
 
 export default (() => {
-  function Search() {
+  function Search({ displayClass }: QuartzComponentProps) {
+    const className = displayClass ? `search ${displayClass}` : "search"
     return (
-      <div class="search">
+      <div class={className}>
         <div id="search-icon">
-          <p>Search</p>
+          <p>Поиск</p>
           <div></div>
-          <svg
+          <div class="shortcut">
+            <kbd>K</kbd>
+            <div>+</div>
+            <kbd>⌘</kbd>
+          </div>
+          {/* <svg
             tabIndex={0}
             aria-labelledby="title desc"
             role="img"
@@ -23,7 +30,7 @@ export default (() => {
               <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4" />
               <circle cx="8" cy="8" r="7" />
             </g>
-          </svg>
+          </svg> */}
         </div>
         <div id="search-container">
           <div id="search-space">
@@ -32,8 +39,8 @@ export default (() => {
               id="search-bar"
               name="search"
               type="text"
-              aria-label="Search for something"
-              placeholder="Search for something"
+              aria-label="Введите текст"
+              placeholder="Введите текст"
             />
             <div id="results-container"></div>
           </div>

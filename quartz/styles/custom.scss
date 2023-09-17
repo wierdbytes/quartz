@@ -38,3 +38,26 @@ a {
     } 
   }
 }
+
+.shortcut {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0 1rem;
+
+  font-family: var(--codeFont);
+  font-size: 14px;
+
+  & > * {
+    padding: 1px 5px;
+  }
+  
+  kbd {
+    font-family: var(--codeFont);
+    color: var(--lightgray);
+    background: var(--secondary);
+    
+    border-radius: 4px;
+    
+  }
+}
+
