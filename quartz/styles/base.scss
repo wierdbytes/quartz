@@ -136,7 +136,7 @@ a {
       width: $sidePanelWidth;
       margin-top: $topSpacing;
       box-sizing: border-box;
-      padding: 0 4rem;
+      padding: 0 2rem;
       position: fixed;
       @media all and (max-width: $fullPageWidth) {
         position: initial;
@@ -446,7 +446,7 @@ video {
 
 ul.overflow,
 ol.overflow {
-  max-height: 300;
+  max-height: 550;
   overflow-y: auto;
 
   // clearfix
