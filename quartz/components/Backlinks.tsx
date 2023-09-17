@@ -5,6 +5,13 @@ import { resolveRelative, simplifySlug } from "../util/path"
 function Backlinks({ fileData, allFiles }: QuartzComponentProps) {
   const slug = simplifySlug(fileData.slug!)
   const backlinkFiles = allFiles.filter((file) => file.links?.includes(slug))
+  
+  if (backlinkFiles.length == 0) {
+    return (
+      <></>
+    )
+  }
+  
   return (
     <div class="backlinks">
       <h3>Backlinks</h3>
@@ -18,7 +25,7 @@ function Backlinks({ fileData, allFiles }: QuartzComponentProps) {
             </li>
           ))
         ) : (
-          <li>No backlinks found</li>
+          <li>Беклинки не найдены</li>
         )}
       </ul>
     </div>
