@@ -39,17 +39,17 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options> | und
                 created ||= st.birthtimeMs
                 modified ||= st.mtimeMs
               } else if (source === "frontmatter" && file.data.frontmatter) {
-                created ||= file.data.frontmatter.date
+                created ||= file.data.frontmatter.created
                 modified ||= file.data.frontmatter.lastmod
                 modified ||= file.data.frontmatter.updated
                 modified ||= file.data.frontmatter["last-modified"]
                 published ||= file.data.frontmatter.publishDate
               } else if (source === "git") {
                 if (!repo) {
-                  repo = new Repository(file.cwd)
+                  repo = new Repository(file.cwd + "/content")
                 }
-
-                modified ||= await repo.getFileLatestModifiedDateAsync(file.data.filePath!)
+                const fpath = file.data.filePath!.slice(8)
+                modified ||= await repo.getFileLatestModifiedDateAsync(fpath)
               }
             }
 
